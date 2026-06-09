@@ -1,12 +1,14 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import Counter from 'embroider-repro-optimize-deps/components/counter';
 
 <template>
   {{pageTitle "EmbroiderReproOptimizeDeps"}}
 
-  {{outlet}}
+  {{! Invoking a Glimmer component on boot makes ember-vite-hmr generate a hot
+      wrapper module that imports @glimmer/reference, @glimmer/runtime and
+      @ember/destroyable. Vite's dep scanner never sees those imports on the
+      first pass, so they are discovered at runtime -> re-optimize + reload. }}
+  <Counter @label="counter" />
 
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage @extension="gts" />
-  {{! Feel free to remove this! }}
+  {{outlet}}
 </template>

@@ -69,6 +69,7 @@
     "ember-resolver": "^13.2.0",
     "ember-source": "~7.0.0",
     "ember-template-lint": "^7.9.3",
+    "ember-vite-hmr": "^2.1.5",
     "ember-welcome-page": "^8.0.5",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",

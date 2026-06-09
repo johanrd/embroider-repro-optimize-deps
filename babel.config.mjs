@@ -4,9 +4,11 @@ import {
   babelCompatSupport,
   templateCompatSupport,
 } from '@embroider/compat/babel';
+import { hotAstProcessor } from 'ember-vite-hmr/lib/babel-plugin';
 
 export default {
   plugins: [
+    'ember-vite-hmr/lib/babel-plugin',
     [
       '@babel/plugin-transform-typescript',
       {
@@ -23,7 +25,7 @@ export default {
           'ember-cli-htmlbars-inline-precompile',
           'htmlbars-inline-precompile',
         ],
-        transforms: [...templateCompatSupport()],
+        transforms: [...templateCompatSupport(), hotAstProcessor.transform],
       },
     ],
     [
