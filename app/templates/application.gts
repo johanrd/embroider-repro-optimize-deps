@@ -1,12 +1,8 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import { LinkTo } from '@ember/routing';
 
 <template>
-  {{pageTitle "EmbroiderReproOptimizeDeps"}}
-
+  {{pageTitle "scan-skip-repro"}}
+  <nav><LinkTo @route="split" data-test-link>go to /split</LinkTo></nav>
   {{outlet}}
-
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage @extension="gts" />
-  {{! Feel free to remove this! }}
 </template>
