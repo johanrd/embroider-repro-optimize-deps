@@ -36,6 +36,25 @@ output:
 - `marked` is **not** in `node_modules/.vite/deps/`
 - navigating to `/split` → `new dependencies optimized: …marked…` → `reloading`
 
+
+
+https://github.com/user-attachments/assets/f69b6598-4e79-488d-bf1a-7cf21af014a0
+
+```
+```
+(!) Failed to run dependency scan. Skipping dependency pre-bundling. Error: The following dependencies are imported but could not be resolved:
+
+  this-package-truly-does-not-exist (imported by /embroider-repro-optimize-deps/tests/unit/broken-scan-test.ts)
+
+Are they installed?
+    at file:///embroider-repro-optimize-deps/node_modules/.pnpm/vite@8.0.16_@types+node@25.9.2_jiti@2.6.1_terser@5.48.0_yaml@2.9.0/node_modules/vite/dist/node/chunks/node.js:31628:33
+    at async file:///embroider-repro-optimize-deps/node_modules/.pnpm/vite@8.0.16_@types+node@25.9.2_jiti@2.6.1_terser@5.48.0_yaml@2.9.0/node_modules/vite/dist/node/chunks/node.js:23353:15
+8:26:33 AM [vite] (client) [optimizer] bundling dependencies...
+8:26:34 AM [vite] (client) ✨ new dependencies optimized: @embroider/config-meta-loader, @embroider/legacy-inspector-support/ember-source-4.12, @embroider/router, ember-cli-deprecation-workflow/index.js, ember-load-initializers, ember-page-title, ember-page-title/_app_/services/page-title.js, ember-resolver, ember-source/@ember/application/index.js, ember-source/@ember/component/index.js, ember-source/@ember/component/template-only.js, ember-source/@ember/debug/index.js, ember-source/@ember/routing/index.js, ember-source/@ember/template-factory/index.js
+8:26:57 AM [vite] (client) ✨ new dependencies optimized: ember-source/@ember/routing/route.js, marked
+8:26:57 AM [vite] (client) ✨ optimized dependencies changed. reloading
+```
+
 ## Confirm it's the test import
 
 Delete `tests/unit/broken-scan-test.ts` (or just its first `import` line), then
