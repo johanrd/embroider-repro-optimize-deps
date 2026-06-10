@@ -41,7 +41,6 @@ output:
 https://github.com/user-attachments/assets/f69b6598-4e79-488d-bf1a-7cf21af014a0
 
 ```
-```
 (!) Failed to run dependency scan. Skipping dependency pre-bundling. Error: The following dependencies are imported but could not be resolved:
 
   this-package-truly-does-not-exist (imported by /embroider-repro-optimize-deps/tests/unit/broken-scan-test.ts)
