@@ -8,5 +8,8 @@ export default async function (defaults) {
     // Add options here
   });
 
-  return compatBuild(app, buildOnce);
+  return compatBuild(app, buildOnce, {
+    staticInvokables: true,
+    splitAtRoutes: ['parent', 'parent.map', 'parent.bap'],
+  });
 }

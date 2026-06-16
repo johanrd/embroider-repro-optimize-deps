@@ -1,12 +1,12 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import { LinkTo } from '@ember/routing';
 
 <template>
-  {{pageTitle "EmbroiderReproOptimizeDeps"}}
-
+  {{pageTitle "map-route-name-repro"}}
+  <nav>
+    <LinkTo @route="parent.map" data-test-link-map>go to /parent/map (broken)</LinkTo>
+    |
+    <LinkTo @route="parent.bap" data-test-link-bap>go to /parent/bap (works)</LinkTo>
+  </nav>
   {{outlet}}
-
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage @extension="gts" />
-  {{! Feel free to remove this! }}
 </template>

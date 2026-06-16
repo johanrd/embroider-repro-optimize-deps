@@ -7,5 +7,12 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  // Add route declarations here
+  // The child must be nested under a *split* parent. In dev, Vite strips ".map"
+  // from the entrypoint id "…:route=parent.map" → "…:route=parent", which is a
+  // real module with a sourcemap, so it serves that instead of the route JS.
+  // Both children are identical apart from the name.
+  this.route('parent', function () {
+    this.route('map'); // BROKEN in dev
+    this.route('bap'); // control: works
+  });
 });
