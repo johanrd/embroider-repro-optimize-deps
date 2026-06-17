@@ -6,7 +6,7 @@ import { LinkTo } from '@ember/routing';
   <nav>
     <LinkTo @route="parent.map" data-test-link-map>go to /parent/map (broken)</LinkTo>
     |
-    <LinkTo @route="parent.bap" data-test-link-bap>go to /parent/bap (works)</LinkTo>
+    <LinkTo @route="parent.control" data-test-link-control>go to /parent/control (works)</LinkTo>
   </nav>
   {{outlet}}
 </template>

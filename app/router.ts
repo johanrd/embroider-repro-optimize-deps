@@ -13,6 +13,6 @@ Router.map(function () {
   // Both children are identical apart from the name.
   this.route('parent', function () {
     this.route('map'); // BROKEN in dev
-    this.route('bap'); // control: works
+    this.route('control'); // control: works
   });
 });

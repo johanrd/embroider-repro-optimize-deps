@@ -3,7 +3,7 @@
 Minimal reproduction: **a code-split route named `map`, nested under another
 split route, cannot be loaded in the Vite dev server.** Navigating to it leaves
 a blank page; the route's JS chunk is never served. An identical sibling named
-`bap` works. Production builds are unaffected.
+`control` works. Production builds are unaffected.
 
 Verified with `@embroider/core` 4.6.1, `@embroider/vite` 1.x, `ember-source`
 7.0.0, `vite` 8.0.16 (see `package.json`).
@@ -43,7 +43,7 @@ from `…:route=map` yields `…:route=` (no such module), the middleware calls
 whose stripped form is another existing route module — i.e. a `map` route nested
 under a split parent. (This is exactly the real-world shape: `organization.map`.)
 
-`bap` is safe in every case — its id ends in `.bap`, which the middleware never
+`control` is safe in every case — its id ends in `.control`, which the middleware never
 touches.
 
 Production is unaffected: route chunks ship as hashed static files
@@ -58,12 +58,12 @@ pnpm start              # dev server (port may vary if 4200 is taken)
 
 Open the app and use the two links:
 
-- **go to /parent/bap** → renders `parent bap route loaded`.
+- **go to /parent/control** → renders `parent control route loaded`.
 - **go to /parent/map** → blank page; the route never renders. In the network
   tab the `…:route=parent.map?import` request comes back as a sourcemap / the
   SPA `index.html` instead of JavaScript.
 
-`app/templates/parent/map.gts` and `app/templates/parent/bap.gts` are identical
+`app/templates/parent/map.gts` and `app/templates/parent/control.gts` are identical
 apart from the name; both (and `parent`) are in `splitAtRoutes`
 (`ember-cli-build.mjs`). The route name is the only variable.
 

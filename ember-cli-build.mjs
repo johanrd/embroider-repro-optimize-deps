@@ -10,6 +10,6 @@ export default async function (defaults) {
 
   return compatBuild(app, buildOnce, {
     staticInvokables: true,
-    splitAtRoutes: ['parent', 'parent.map', 'parent.bap'],
+    splitAtRoutes: ['parent', 'parent.map', 'parent.control'],
   });
 }
